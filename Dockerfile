@@ -1,6 +1,6 @@
 # Use the latest Ubuntu base image
 FROM ubuntu:latest
-MAINTAINER Stephen Coakley <me@stephencoakley.com>
+MAINTAINER Karl Hughes <khughes.me@gmail.com>
 
 # Silence debconf's endless prattle
 ENV DEBIAN_FRONTEND noninteractive
