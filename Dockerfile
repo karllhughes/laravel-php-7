@@ -38,6 +38,7 @@ RUN apt-get update && apt-get install -y \
     mcrypt \
     re2c && \
     ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
+
 RUN curl -O http://launchpadlibrarian.net/140087283/libbison-dev_2.7.1.dfsg-1_amd64.deb && \
     curl -O http://launchpadlibrarian.net/140087282/bison_2.7.1.dfsg-1_amd64.deb && \
     dpkg -i libbison-dev_2.7.1.dfsg-1_amd64.deb && \
@@ -57,8 +58,50 @@ RUN cd /usr/local/src/php && ./buildconf && ./configure \
     --enable-fpm \
     --without-pear \
     --with-openssl \
-    --enable-mbstring && \
-    make && make install
+    --with-zlib \
+    --enable-zip \
+    --enable-mbstring \
+    --enable-zend-signals \
+    --with-gd \
+    --with-jpeg-dir=/usr \
+    --with-png-dir=/usr \
+    --with-vpx-dir=/usr \
+    --with-freetype-dir=/usr \
+    --with-t1lib=/usr \
+    --enable-gd-native-ttf \
+    --enable-exif \
+    --with-mysql-sock=/var/run/mysqld/mysqld.sock \
+    --enable-phpdbg \
+    --with-gmp \
+    --with-zlib-dir=/usr \
+    --with-gettext \
+    --with-kerberos \
+    --with-imap-ssl \
+    --with-mcrypt=/usr/local \
+    --with-iconv \
+    --enable-sockets \
+    --with-pspell \
+    --with-pdo-mysql=mysqlnd \
+    --with-pdo-sqlite \
+    --with-pgsql \
+    --with-pdo-pgsql \
+    --enable-soap \
+    --enable-xmlreader \
+    --with-xsl \
+    --enable-ftp \
+    --enable-cgi \
+    --with-curl=/usr \
+    --with-tidy \
+    --with-xmlrpc \
+    --enable-sysvsem \
+    --enable-sysvshm \
+    --enable-shmop \
+    --with-readline \
+    --enable-pcntl \
+    --enable-intl \
+    --with-mysqli=mysqlnd \
+    --enable-calendar \
+    --enable-bcmath && make && make install
 
 # My versions
 COPY newphp /usr/bin/newphp
