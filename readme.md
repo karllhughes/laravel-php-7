@@ -4,6 +4,8 @@ This Docker container builds the latest version of PHP 7.0 on Ubuntu as well as 
 
 I took pieces from Heroku's PHP 7.0 buildpack and a couple other PHP 7.0 Docker containers that I found. I welcome pull requests or suggestions for improvements on the Github Repo.
 
+This container is intended for local development only, and I wouldn't recommend trying to deploy it. My goal with this Dockerfile was to create a way to quickly test whether an existing Laravel app would work in PHP7, and for that, it works well. In a real production environment, I'd recommend using a Docker compose file and individual Docker containers for each service required to run your application (eg: Apache, PHP7, NGINX, etc.).
+
 ### Running this Container
 *Note: I'm assuming you've set up Docker and a VM (if necessary). If not, 
 start [here](https://docs.docker.com/engine/installation/).*
